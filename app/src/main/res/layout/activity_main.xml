@@ -13,9 +13,33 @@
         android:text="Campo Minado"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Este é o componente que vai segurar a nossa matriz -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvNomeJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jogador: -"
+            android:textSize="18sp"
+            android:layout_marginEnd="24dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvQtdBombas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bombas: 4"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTabuleiro"
         android:layout_width="match_parent"
@@ -28,5 +52,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Reiniciar Jogo" />
+
+    <Button
+        android:id="@+id/btnVerRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Ver Ranking"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
 </LinearLayout>

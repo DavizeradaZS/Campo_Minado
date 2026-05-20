@@ -23,7 +23,9 @@ interface ApiService {
 
     // Inicializador do Retrofit embutido na própria interface
     companion object {
-        private const val BASE_URL = "http://10.0.2.2/api_campominado/"
+        // Substitua pelo domínio real onde colocou a pasta "api_campominado"
+        // Tem de terminar sempre com a barra "/"
+        private const val BASE_URL = "https://www.oseudominio.com/api_campominado/"
 
         fun criar(): ApiService {
             val retrofit = Retrofit.Builder()
