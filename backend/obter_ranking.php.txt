@@ -1,0 +1,37 @@
+<?php
+header("Content-Type: application/json; charset=UTF-8");
+include_once 'conexao.php';
+
+// Busca os top 50 jogadores, do maior pontuador para o menor
+$query = "SELECT id, nome, idade, email, pontos FROM jogadores ORDER BY pontos DESC LIMIT 50";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$num = $stmt->rowCount();
+
+if($num > 0) {
+    $jogadores_arr = array();
+    
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        extract($row);
+        
+        $jogador_item = array(
+            "id" => $id,
+            "nome" => $nome,
+            "idade" => $idade,
+            "email" => $email,
+            "pontos" => $pontos
+        );
+        
+        array_push($jogadores_arr, $jogador_item);
+    }
+    
+    http_response_code(200);
+    // Devolve o array convertido em JSON
+    echo json_encode($jogadores_arr);
+} else {
+    http_response_code(200);
+    // Se não tiver ninguém, devolve lista vazia
+    echo json_encode([]); 
+}
+?>

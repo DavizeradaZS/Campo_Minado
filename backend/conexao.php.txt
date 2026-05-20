@@ -1,0 +1,19 @@
+<?php
+// O host online pode ser um IP (ex: 185.200.x.x), um domínio de base de dados, ou até mesmo "localhost" 
+// (se o seu ficheiro PHP estiver no mesmo servidor que a base de dados do alojamento).
+$host = "endereco_do_seu_banco_online"; 
+
+// O nome da base de dados e do utilizador online geralmente têm um prefixo do seu painel (ex: o_seu_login_campominadodb)
+$db_name = "nome_da_base_de_dados_online";
+$username = "utilizador_da_base_de_dados"; 
+$password = "sua_senha_forte_online";     
+
+try {
+    // A linha de ligação continua igual!
+    $conn = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $exception) {
+    echo "Erro de ligação: " . $exception->getMessage();
+    exit;
+}
+?>
