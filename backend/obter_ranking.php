@@ -11,10 +11,8 @@ $num = $stmt->rowCount();
 
 if($num > 0) {
     $jogadores_arr = array();
-    
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        
         $jogador_item = array(
             "id" => $id,
             "nome" => $nome,
@@ -22,7 +20,6 @@ if($num > 0) {
             "email" => $email,
             "pontos" => $pontos
         );
-        
         array_push($jogadores_arr, $jogador_item);
     }
     

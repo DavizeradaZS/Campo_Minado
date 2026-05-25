@@ -1,5 +1,4 @@
-CREATE DATABASE campominado_db;
-USE campominado_db;
+USE engenharia_191;
 
 CREATE TABLE jogadores (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -13,7 +13,8 @@ if(!empty($dados->nome) && isset($dados->pontos)) {
     $stmt->bindParam(":nome", $dados->nome);
     
     if($stmt->execute()) {
-        http_response_code(200); // OK
+        http_response_code(200);
+        // OK
         echo json_encode(["mensagem" => "Pontuação atualizada."]);
     } else {
         http_response_code(503); 
